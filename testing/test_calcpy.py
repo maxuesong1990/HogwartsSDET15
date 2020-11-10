@@ -9,7 +9,7 @@ class TestCalc:
     def teardown_class(self):
         print('计算结束')
 
-    @pytest.mark.parametrize
+    #@pytest.mark.parametrize
     def test_add(self):
         #calc = Calculator()
         result = self.calc.add(1, 1)

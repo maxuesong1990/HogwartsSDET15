@@ -32,5 +32,4 @@ class TestWework():
         WebDriverWait(self.driver, 10).until(lambda x: "外出打卡成功" in x.page_source)
 
 
-# if __name__=='__main__':
-#     pytest.main()
+
