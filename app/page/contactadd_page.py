@@ -28,8 +28,3 @@ class ContactAddPage(BasePage):
         self.find(MobileBy.XPATH,"//*[contains(@text,'手机')]/../android.widget.EditText").send_keys(send_mobile)
         self.find(MobileBy.XPATH,"//*[@text='保存']").click()
 
-
-
-
-
-        return True
