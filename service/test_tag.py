@@ -46,3 +46,37 @@ class TestTag:
 
     def test_tag_list_fail(self):
         pass
+
+    # 40071 UserTag Name Already Exist
+    # 删除对应的tag（推荐使用此方法）
+    # 已有的tag_name的基础上追加名字（时间戳，计数器）
+    def test_add_tag(self):
+        # todo：测试数据要放到测试文件中
+        group_name="TMP00123"
+        tag=[{"name": "TAg4"}, {"name": "TAg1"}]
+        r= self.tag.add(group_name=group_name,tag=tag)
+        assert  r.status_code==200
+        assert  r.json()["errcode"]==0
+
+    def test_add_before_detect(self):
+        group_name = "TMP00123"
+        tag = [{"name": "TAg9"}, {"name": "TAg16"}]
+        r= self.tag.add_add_detect(group_name, tag)
+        assert  r
+
+    def test_list(self):
+        self.tag.list()
+
+   #"errcode": 40068,    #"errcode": 40068
+   #0、添加tag
+   #1、删除tag 有问题
+   #2、再进行重试（重试次数为n）：手动实现，借助pytest 钩子（rerun插件）
+    # a。 添加一个接口
+    # b。 对新添加对接口再删除
+    # c。 查询是否成功
+    def test_delete_group(self):
+        self.tag.delete_group(["etaHZMCAAAecj2j_QH-V4asBAc9jwBNQ"])
+
+    def test_delete_tag(self):
+        self.tag.delete_tag(["etaHZMCAAANcHqEm1br72yrdp7G7Zqvg"])
+
